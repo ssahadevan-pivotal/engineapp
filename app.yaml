@@ -1,0 +1,24 @@
+
+application: analyze-stock
+version: 7
+runtime: python27
+api_version: 1
+threadsafe: false
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+# Endpoints handler
+- url: /_ah/spi/.*
+  script: stockAnalyzer_api.APPLICATION
+
+- url: .*
+  script: main.py
+
+libraries:
+- name: pycrypto
+  version: latest
+- name: endpoints
+  version: 1.0
+

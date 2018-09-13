@@ -1,0 +1,20 @@
+<html>
+<head>
+   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ </head>
+   <body>
+	{% include "nav.html" %}
+      <div align="center">
+       {% ifequal keyCount 0  %}
+               <h3> *** Unable to find Key Statistics for  {{ ticker }} ***</h3>
+        {% else %}
+              <h3> Fast Growing Companies: Sorted by Quarterly Revenue Growth </h3>
+              {% include "disclaimer.html" %}
+               {% include "historyTable.html" %}                         
+                {% include "footerNav.html" %}            
+    {% endifequal %}
+</div>
+
+</body> 
+ </html>

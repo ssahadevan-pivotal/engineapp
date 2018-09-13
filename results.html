@@ -1,0 +1,43 @@
+<html>
+<head>
+   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ </head>
+   <body>
+	{% include "nav.html" %}
+      <div align="center">
+       {% if keyCount < expectedKeyCount  %}
+               <h3> *** Unable to find Key Statistics for  {{ ticker }} ,  tickerType={{ tickerType }}  ***</h3>
+                <h3> *** keyCount=  {{ keyCount }}, expectedKeyCount= {{ expectedKeyCount }} ***</h3>
+        {% else %}
+              <h3> The result for {{ tickerType }} {{ tickerName }}, at {{ price }} is {{ recommendation }} for {{ configType }}</h3>
+              {% include "disclaimer.html" %}
+              <!-- Commented out Chart - Sep 2018 
+                <img src=http://www.google.com/finance/chart?q={{ ticker }}&tlf=12 alt="Chart for {{ ticker }}"/>
+               -->
+               {% ifequal tickerType "Stock" %}
+                  {% include "resultsStockTable.html" %}
+               {% else %}
+                  {% include "resultsFundTable.html" %}
+               {% endifequal %}
+               
+    {% endif %}
+    
+<div>
+       <ul>
+        <li> <a href={{link_0}}> {{ title_0}} </a></li>
+	  <li> <a href={{link_1}}> {{ title_1}} </a></li>
+ 	  <li> <a href={{link_2}}> {{ title_2}} </a></li>
+ 	  <li> <a href={{link_3}}> {{ title_3}} </a></li>
+ 	  <li> <a href={{link_4}}> {{ title_4}} </a></li>
+	<ul>
+     
+</div>
+{% include "options.html" %}
+
+<br>
+
+{% include "tweetsMa.html" %}
+
+</body> 
+ </html>

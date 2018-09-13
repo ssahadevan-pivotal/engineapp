@@ -1,0 +1,113 @@
+<html>
+<head>
+   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ </head>
+   <body>
+    <!--  Header -->
+    {% include "nav.html" %}
+     
+      <form action="/submitTicker" method="post">
+     
+            <div align="center"> 
+            <!-- Commented out Sep 2018 
+            <table>
+              <tr>
+                <th>S&P</th>
+                <th>DJIA</th>
+                <th>Nasdaq</th>
+		<th>VIX</th>
+              </tr>
+              
+              <tr>
+                <td><img src=http://www.google.com/finance/chart?q=INDEXSP:.INX&tlf=12 alt="Chart for S&P " title="S&P"/></td>
+                <td><img src=http://www.google.com/finance/chart?q=INDEXDJX:.DJI&tlf=12 alt="Chart for DJIA " title="DJIA"/></td>
+                <td><img src=http://www.google.com/finance/chart?q=INDEXNASDAQ:.IXIC&tlf=12 alt="Chart for Nasdaq " title="Nasdaq"/></td>
+		<td><img src=http://www.google.com/finance/chart?q=INDEXCBOE:VIX&tlf=12 alt="VIX" title="VIX"/></td>
+              </tr>
+              
+            </table>
+            -->
+         
+
+<p class="ex1">
+
+<b>Enter ticker to analyze: </b> <text><input type=text name="ticker" size="5" cols="10"></text>
+
+&nbsp;&nbsp;
+
+<SELECT NAME="tickerType">
+<OPTION selected="selected" VALUE="Stock">Stock
+<OPTION VALUE="MutualFund">Mutual Fund
+</SELECT>
+
+</p>
+
+</div>
+              {% include "disclaimer.html" %}
+
+    <div align="center">
+       <table id="box-table-a" summary="CurrentConfiguration">
+                <thead>
+                    <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Optimal PE</th>
+                        <th scope="col">Optimal PEG</th>
+                        <th scope="col">Optimal Debt to Equity</th>
+                        <th scope="col">Optimal QRG</th>
+                        <th scope="col">Optimal Yield</th>
+                        <th scope="col">Optimal Beta</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%  for optimalValue in optimalValues  %}
+                   <tr>
+                        {% ifequal optimalValue.configType 'Growth'  %}
+                            <td><input type="radio" name="configType" value={{ optimalValue.configType }} CHECKED/></td>
+                        {% else %}
+                             <td><input type="radio" name="configType" value={{ optimalValue.configType }} /></td>
+                        {% endifequal %}
+                        <td>{{ optimalValue.configType }}</td>
+                        <td>{{ optimalValue.peRatio }}</td>
+                        <td>{{ optimalValue.pegRatio }}</td>
+                        <td>{{ optimalValue.debtToEquity }}</td>
+                        <td>{{ optimalValue.qRevGrowth }}</td>
+                        <td>{{ optimalValue.divYield }}</td>
+                        <td>{{ optimalValue.beta }}</td>
+                        <td>{{ optimalValue.date|date:"d-M-Y H:i:s"  }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+               
+            </div>
+            <div align="center">
+              
+                <input type="submit" value="Submit Ticker">
+              
+
+            <br></br>
+            <br></br>
+            <!-- Commented out Sep 2018 
+            <table>
+              <tr>
+                <th>BSE Sensex</th>
+                <th>FTSE 100</th>
+                <th>SPDR Gold Trust (ETF)</th>
+              </tr>
+            
+              <tr>
+                <td><img src=http://www.google.com/finance/chart?q=INDEXBOM:SENSEX&tlf=12 alt="Chart for BSE Sensex " title="BSE Sensex"/></td>
+                <td><img src=http://www.google.com/finance/chart?q=INDEXFTSE:UKX&tlf=12 alt="FTSE 100 " title="FTSE 100"/></td>
+                <td><img src=http://www.google.com/finance/chart?q=NYSEARCA:GLD&tlf=12 alt="Gold " title="SPDR Gold Trust (ETF)"/></td>
+              </tr>
+              
+            </table>
+            -->
+            </div>
+
+         </form>
+   </body>
+ </html>

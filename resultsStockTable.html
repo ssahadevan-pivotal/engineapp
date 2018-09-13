@@ -1,0 +1,79 @@
+                
+                <table id="box-table-a" summary="Summary">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Criteria Pass/Fail</th>
+                        <th scope="col">Actual Value</th>
+                        <th scope="col">Optimal Value</th>
+                        <th scope="col">Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Price to Earnings</td>
+                        <td>{{ isPeOk }}</td>
+                        <td>{{ pe }} </td>
+                        <td>{{ optimalPeRatio }}</td>
+                        <td>Actual should be below the Optimal value</td>
+                    </tr>
+                    <tr>
+                        <td>Price to Earnings Growth Ratio</td>
+                        <td>{{ isPegOk }}</td>
+                        <td>{{ pegRatio }}</td>
+                        <td>{{ optimalPegRatio }}</td>
+                        <td>Actual should be below the Optimal value</td>
+                    </tr>
+                     <tr>
+                        <td>Book Value</td>
+                        <td>Not Tested</td>
+                        <td>{{ bookValue }}</td>
+                        <td>{{ optimalQRevGrowth }}</td>
+                        <td>Book Value</td>
+                    </tr>
+                    <tr>
+                        <td>Dividend Yield</td>
+                        <td>{{ isDivYieldOk }}</td>
+                        <td>{{ divYield }}</td>
+                        <td>{{ optimalYield }}</td>
+                        <td>Is Yield High? If optimal yield is configured to 0, then ignores the yield</td>
+                    </tr>
+                    <tr>
+                        <td>Price to Book</td>
+                        <td>Not Tested</td>
+                        <td>{{ priceToBook }}</td>
+                        <td>{{ optimalDebtToEquity }}</td>
+                        <td>Price to Book ratio</td>
+                    </tr>
+                    <tr>
+                        <td>Price To Sales</td>
+                        <td>Not Tested</td>
+                        <td>{{ priceToSales}}</td>
+                        <td>{{ optimalBeta }}</td>
+                        <td>Price To Book</td>
+                    </tr>
+                      <tr>
+                        <td>50 Day Moving Average</td>
+                        <td>Not Tested</td>
+                        <td>{{ fiftyDayMovAvg }}</td>
+                        <td>None </td>
+                        <td>50 Day Moving Average </td>
+                    </tr>
+                      <tr>
+                        <td>200 Day Moving Average</td>
+                        <td>Not Tested</td>
+                        <td>{{ twoHundredDayMovAvg }}</td>
+                        <td>None</td>
+                        <td>200 Day Moving Average</td>
+                    </tr>
+                    <tr>
+                        <td>Market Cap</td>
+                        <td>Not Tested</td>
+                        <td>{{ marketCap }}</td>
+                        <td>None</td>
+                        <td>Market Cap</td>
+                    </tr>
+
+                </tbody>
+                </table>      
+    

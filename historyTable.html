@@ -1,0 +1,48 @@
+                <table id="box-table-a" summary="Summary">
+                <thead>
+                    <tr>
+                        <th scope="col">Ticker</th>                
+                        <th scope="col">Results</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">PEG</th>
+                        <th scope="col">Optimal PEG</th>
+                        <th scope="col">PE</th>
+                        <th scope="col">Optimal PE</th>
+                        <th scope="col">Q Rev Growth</th>
+                        <th scope="col">Optimal QRG</th>
+                        <th scope="col">Debt to Equity</th>
+                        <th scope="col">Optimal Debt to Equity</th>
+                        <th scope="col">Yield</th>
+                        <th scope="col">Optimal Yield</th>
+                        <th scope="col">Beta</th>
+                        <th scope="col">Optimal Beta</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%  for tickerResult in tickerResults  %}
+                    <tr>
+                        <td>{{ tickerResult.ticker }}</td>                   
+                        <td>{{ tickerResult.recommendation }}</td>
+                        <td>{{ tickerResult.configType }}</td>
+                        <td>{{ tickerResult.price }}</td>
+                        <td>{{ tickerResult.pegRatio }}</td>
+                        <td>{{ tickerResult.optimalPegRatio }}</td>
+                        <td>{{ tickerResult.peRatio }}</td>
+                        <td>{{ tickerResult.optimalPeRatio }}</td>
+                        <td>{{ tickerResult.qRevGrowth }}</td>
+                        <td>{{ tickerResult.optimalQRevGrowth }}</td>
+                        <td>{{ tickerResult.debtToEquity }}</td>
+                        <td>{{ tickerResult.optimalDebtToEquity }}</td>
+                        <td>{{ tickerResult.divYield }}</td>
+                        <td>{{ tickerResult.optimalDivYield }}</td>
+                        <td>{{ tickerResult.beta }}</td>
+                        <td>{{ tickerResult.optimalBeta }}</td>
+                        <td>{{ tickerResult.date|date:"d-M-Y H:i:s"  }}</td>
+                    </tr>
+                {% endfor %}
+                    
+                </tbody>
+                </table>
+ 

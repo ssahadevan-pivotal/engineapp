@@ -1,0 +1,18 @@
+        
+                <ul id="footer-nav">            
+                {% if prev_page %}
+                      <li><a href="{{targetUri}}?page={{1}}">First Page</a></li>
+                      <li><a href="{{targetUri}}?page={{prev_page}}">Previous Page</a></li>  
+                {% endif %}   
+               
+                {% if next_page %}   
+                  <li><a href="{{targetUri}}?page={{next_page}}">Next Page</a></li> 
+                {% endif %}
+
+                {% if next_page %}   
+                  <li><a href="{{targetUri}}?page={{page_count}}">Last Page</a></li> 
+                {% endif %}
+
+                </ul>
+                
+  

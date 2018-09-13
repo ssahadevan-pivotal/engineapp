@@ -1,0 +1,25 @@
+<html>
+<head>
+   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ </head>
+   <body>
+	{% include "nav.html" %}
+	<form action="/filterHistory" method="post">
+      <div align="center">
+       {% ifequal keyCount 0  %}
+               <h3> *** Unable to find Key Statistics for  {{ ticker }} ***</h3>
+        {% else %}
+              <h3> Filter History:Ticker={{ ticker }} ,  Ticker count={{ count }}, pages= {{ page_count}} </h3>
+              <p class="ex1"><b>Enter the Stock Ticker to filter History on: </b> <text><input type=text name="ticker" value={{ ticker }} size="5" cols="10"></text></p></div>
+              {% include "disclaimer.html" %}
+              <div align="center"><input type="submit" value="Filter History"></div>
+              <div align="center">
+              {% include "historyTable.html" %}
+                {% include "filterHistoryFooterNav.html" %}                           
+    {% endifequal %}
+</div>
+   
+  </form>
+ </body> 
+</html>

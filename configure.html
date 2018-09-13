@@ -1,0 +1,54 @@
+<html>
+<head>
+   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ </head>
+   <body>
+    <!--  Header -->
+    {% include "nav.html" %}
+      <form action="/submitConfiguration" method="post">
+    <div align="center">
+    <h3> Current configuration </h3>
+    {% include "disclaimer.html" %}
+       <table id="box-table-a" summary="CurrentConfiguration">
+                <thead>
+                   <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Optimal PE</th>
+                        <th scope="col">Optimal PEG</th>
+                        <th scope="col">Optimal DebtToEquity</th>
+                        <th scope="col">Optimal Quaterly Revenue Growth</th>
+                        <th scope="col">Optimal Yield</th>
+                        <th scope="col">Optimal Beta</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%  for optimalValue in optimalValues  %}
+                   <tr>
+                        {% ifequal optimalValue.configType 'Growth'  %}
+                            <td><input type="radio" name="configType" value= {{ optimalValue.configType }} CHECKED/></td>
+                        {% else %}
+                             <td><input type="radio" name="configType" value= {{ optimalValue.configType }} /></td>
+                        {% endifequal %}
+                        <td>{{ optimalValue.configType }}</td>
+                        <td><text><input type=text name="optimalPeRatio_{{ optimalValue.configType }}" size="5" cols="10" value={{ optimalValue.peRatio }}></text></td>
+                        <td><text><input type=text name="optimalPegRatio_{{ optimalValue.configType }}" size="5" cols="10" value={{ optimalValue.pegRatio }}></text></td>
+                        <td><text><input type=text name="optimalDebtToEquity_{{ optimalValue.configType }}" size="5" cols="10" value={{ optimalValue.debtToEquity }}></text></td>
+                        <td><text><input type=text name="optimalQRevGrowth_{{ optimalValue.configType }}" size="5" cols="10" value={{ optimalValue.qRevGrowth }}></text></td>
+                        <td><text><input type=text name="optimalYield_{{ optimalValue.configType }}" size="5" cols="10" value={{ optimalValue.divYield }}></text></td>
+                        <td><text><input type=text name="optimalBeta_{{ optimalValue.configType }}" size="5" cols="10" value={{ optimalValue.beta }}></text></td>
+                        <td>{{ optimalValue.date|date:"d-M-Y H:i:s"  }}</td>
+                        <td>Growth , Value or Income </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+                     
+            </div>
+            <div align="center"><input type="submit" value="Submit"></div>
+        </form>
+   </body>
+ </html>

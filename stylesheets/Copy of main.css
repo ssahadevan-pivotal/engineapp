@@ -1,0 +1,64 @@
+body {
+  font-family: Verdana, Helvetica, sans-serif;
+  background-color:#b0c4de;
+}
+h1 {text-align:center;}
+
+#nav {
+padding: 0;
+}
+
+#nav li {
+display: inline;
+}
+
+#nav li a {
+font-family: Arial;
+font-size:11px;
+text-decoration: none;
+float:left;
+padding: 10px;
+background-color: #2175bc;
+color: #fff;
+}
+
+
+#nav li a:hover {
+background-color: #2586d7;
+margin-top:-2px;
+padding-bottom:12px;
+}
+
+#box-table-a
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 90px;
+	width: 700px;
+	text-align: left;
+	border-collapse: collapse;
+}
+#box-table-a th
+{
+	font-size: 13px;
+	font-weight: bold;
+	padding: 8px;
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 1px solid #fff;
+	color: #039;
+}
+#box-table-a td
+{
+	padding: 8px;
+    font-weight: bold;
+	background: #e8edff; 
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+}
+#box-table-a tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+}

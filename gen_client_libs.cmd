@@ -1,0 +1,1 @@
+python "C:\Program Files\Google\google_appengine\endpointscfg.py" get_client_lib java -o . stockAnalyzer_api.StockAnalyzer

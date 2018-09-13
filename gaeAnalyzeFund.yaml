@@ -1,0 +1,50 @@
+#YAML
+#List of tickers
+tickerList:
+- MINDX
+#- MAPIX
+
+#Optimal Values 
+optimalRank:
+    10
+ 
+optimalRisk:
+    3
+
+optimalExpenseRatio:
+    2
+
+optimalReturn:
+     5
+
+optimalYield:
+     2
+
+optimalFiveYearReturn:
+     5
+  
+#Keys for items on ths key statistics page
+TITLE_KEY:
+    "title"
+PREV_CLOSE_KEY:
+    "Prev Close:"
+NET_ASSETS_KEY:
+    "Net Assets:"
+EXP_RATIO_KEY:
+    "Annual Report Expense Ratio (net):"
+YTD_RETURN_KEY:
+    "YTD Return:"
+YIELD_KEY:
+    "Yield:"
+PRICE_KEY:
+    "Price:"
+FIVE_YEAR_RET_KEY:
+    "5y Avg Return:"
+RANK_IN_CATEGORY_KEY:
+    "Rank in Category (ytd):"
+BETA_KEY:
+     "Beta (3y):"
+MRR_KEY:
+     "Morningstar Risk Rating:"
+CATEGORY_KEY:
+     "Category:"

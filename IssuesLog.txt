@@ -1,0 +1,5 @@
+List of Issues Fixed:
+
+
+April 7, 2015: MacroData did not work - In main.py - Key had to be changed to "CurrentShiller PE Ratio"
+            caseShillerPe=float ( getValueFromKey( keyStats, "CurrentShiller PE Ratio") );

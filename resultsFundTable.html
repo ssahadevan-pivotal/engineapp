@@ -1,0 +1,82 @@
+                
+                <table id="box-table-a" summary="Summary">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Criteria</th>
+                        <th scope="col">Actual Value</th>
+                        <th scope="col">Optimal Value</th>
+                        <th scope="col">Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                        <td>Rank</td>
+                        <td>{{ isRankOk }}</td>
+                        <td>{{ rankInCategory }}</td>
+                        <td>{{ optimalRank }}</td>
+                        <td>Rank in Catergory</td>
+                    </tr>
+                    <tr>
+                        <td>MRR</td>
+                        <td>{{ isRiskOk }}</td>
+                        <td>{{ morningstarRiskRating }}</td>
+                        <td>{{ optimalRisk }}</td>
+                        <td>MorningStar Risk Rating</td>
+                    </tr>  
+                    <tr>
+                        <td>Fund Yield</td>
+                        <td>{{ isYieldOk }}</td>
+                        <td>{{ fundYield }}</td>
+                        <td>{{ optimalYield }}</td>
+                        <td></td>
+                     </tr>
+                     <tr>
+                        <td>5 Year Return</td>
+                        <td>{{ isFiveYearRetOk }}</td>
+                        <td>{{ fiveYearRet }}</td>
+                        <td>{{ optimalFiveYearRet }}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Expense Ratio</td>
+                        <td>{{ isExpenseRatioOk }}</td>
+                        <td>{{ annualExpRatio }}</td>
+                        <td>{{ optimalExpenseRatio }}</td>
+                        <td>Annual Expense Ratio</td>
+                    </tr>
+                     <tr>
+                        <td>YTD Return</td>
+                        <td></td>
+                        <td>{{ ytdReturn }}</td>
+                        <td></td>
+                        <td>Year To Date Return</td>
+                    </tr>
+
+                    <tr>
+                        <td>Net Assets</td>
+                        <td></td>
+                        <td>{{ netAssets }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                     
+                    <tr>
+                        <td>Beta</td>
+                        <td></td>
+                        <td>{{ beta }}</td>
+                        <td></td>
+                        <td></td>
+                     </tr>
+                     <tr>
+                        <td>Category</td>
+                        <td></td>
+                        <td>{{ category }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                     
+                </tbody>
+                </table>      
+    

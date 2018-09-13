@@ -1,0 +1,26 @@
+Outstanding Ideas:
+
+1) Twitter integration
+2) ETF analysis
+3) History should show mutual fund analysis
+4) ETF analysis
+
+
+Changes Competed Items:
+
+Oct 2013:
+
+1) Filter by Recommendaton  - ie show all Buys
+
+Sep 2013:
+
+1) Added Vix to Front page 
+2) Added Pass/Fail criteria 
+
+July 2014:
+
+1) getNews
+2) Mobile app released
+3) Mutual fund analysis
+4) Macro Indicators - Shiller PE
+
