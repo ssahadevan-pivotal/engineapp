@@ -188,7 +188,14 @@ def getRecommendation( ticker , optimalValues):
       change = additionalStockData['Global Quote']['09. change'];
       volumne = additionalStockData['Global Quote']['06. volume'];
       logging.error("Price is %s", price );
+
+      oneYearTarget= getValueFromKey (keyStats,'1 Year Target');
       
+      logging.error(" oneYearTarget is %s", oneYearTarget);
+
+      if ( isFairlyValued(price, oneYearTarget)):
+       recommendation=BUY;
+       
       tickerName = ticker;
       bookValue=convertToFloat( "0.0" );
       marketCap= getValueFromKey (keyStats, 'Market Cap' ) ; 
@@ -230,18 +237,7 @@ def getRecommendation( ticker , optimalValues):
         print "pegRatio is ", pegRatio, " debtToEquity is ", debtToEquity, " qRevGrowth is ", qRevGrowth ," yield is ", divYield
 
       #logging.error('Before isFairlyValued:')
-      if ( isFairlyValued(pe, optimalPeRatio)):
-       isPeOk=True; 
-       if ( isFairlyValued(pegRatio, optimalPegRatio)):
-        isPegOk=True;
-        logging.error('After isFairlyValued')
-        isQRevGrowthOk=True;
-        if ( isHighPct( divYield, optimalYield , getValueFromConfigs("YIELD_KEY"))):
-            isDivYieldOk=True;
-            logging.error('After isHighPct - Yield')
-            recommendation=BUY
-        else:
-            recommendation=SELL
+      
    
 
   #Currently not used because it slows the response. 
@@ -262,6 +258,7 @@ def getRecommendation( ticker , optimalValues):
             'qRevGrowth': qRevGrowth,
             'divYield': divYield,
             'beta':beta,
+            'oneYearTarget': oneYearTarget,
             'fiftyDayMovAvg':fiftyDayMovAvg,
             'twoHundredDayMovAvg':twoHundredDayMovAvg,
             'bookValue':bookValue,

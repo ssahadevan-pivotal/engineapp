@@ -146,16 +146,25 @@ def convertToFloat( dataToConvert ):
  
   return returnValue
 
-#Uncomment to run this directly in python
-#DEBUG=True;
-#ticker="MA" 
-#keyStats , keyCount =getKeyStats(ticker,DEBUG)
-#eps= getValueFromKey (keyStats,  'Earnings Per Share (EPS)' );
+#Sample data is here:
+#MA Stock Quote - Mastercard Incorporated Common Stock Price - Nasdaq
+#{u"Today's High / Low": u'$&nbsp;218.69&nbsp;/&nbsp;$&nbsp;214.37', u'Forward P/E (1y)': u'33.39'
+#, u'Dividend Payment Date': u'8/9/2018', u'1 Year Target': u'225'
+#, 'title': u'MA Stock Quote - Mastercard Incorporated Common Stock Price - Nasdaq', u'Previous Close': u'$&nbsp;214.03'
+#, u'Market Cap': u'240,871,804,202', u'90 Day Avg. Daily Volume': u'3,132,124', u'Beta': u'1.28', u'P/E Ratio': u'48.7'
+#, u'Earnings Per Share (EPS)': u'$&nbsp;4.46', u'Share Volume': u'3,863,896', u'Current Yield': u'0.47 %', u'Ex Dividend Date': u'7/6/2018'
+#, u'Annualized Dividend': u'$ 1', u'52 Week High / Low': u'$&nbsp;217.35&nbsp;/&nbsp;$&nbsp;137.75'}
 
-#print "EPS is " + eps;
-#print keyStats['title']
+#Set DEBUG=True and run this directly in python. It should be set to False for app engine
 
-        
-#print keyStats, keyCount;
+DEBUG=False;
+ticker="MA" 
+keyStats , keyCount =getKeyStats(ticker,DEBUG)
+eps= getValueFromKey (keyStats,  'Earnings Per Share (EPS)' );
+
+if ( DEBUG ):
+  print "EPS is " + eps;
+  print keyStats['title']
+  print keyStats, keyCount;
   
   
