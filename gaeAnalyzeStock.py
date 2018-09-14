@@ -241,9 +241,9 @@ def getRecommendation( ticker , optimalValues):
    
 
   #Currently not used because it slows the response. 
-  # title,link = getNewsForTicker(ticker);
+  title,link = getNewsForTicker(ticker);
   #news=""
-  #logging.debug( "getRecommendation: Title length is - %d", len(title)) ;
+  logging.debug( "getRecommendation: Title length is - %d", len(title)) ;
   
   templateValues = {
             'ticker': ticker,
@@ -281,12 +281,12 @@ def getRecommendation( ticker , optimalValues):
 
   # Add News based on how many items there are.
   # Commented out Sep 2018
-  #loopCount=0 
-  #while ( len( title ) > loopCount):
-  #    templateValues["title_" + str(loopCount)]= title[loopCount];
-  #    templateValues["link_" + str(loopCount) ]= link[loopCount];
-  #    loopCount = loopCount + 1 ;
-  #   logging.debug( "getRecommendation: Title length is - %d, templateValues = %s ", len(title) , templateValues ) ;
+  loopCount=0 
+  while ( len( title ) > loopCount):
+      templateValues["title_" + str(loopCount)]= title[loopCount];
+      templateValues["link_" + str(loopCount) ]= link[loopCount];
+      loopCount = loopCount + 1 ;
+      logging.debug( "getRecommendation: Title length is - %d, templateValues = %s ", len(title) , templateValues ) ;
   
 
   logging.debug('Before Write to DB ticker %s is %s and beta is %s', ticker , recommendation , beta)
