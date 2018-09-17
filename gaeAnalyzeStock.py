@@ -124,7 +124,8 @@ def isHighPct( pct, optimalPct, key ):
 
 def getRecommendation( ticker , optimalValues):
   recommendation="SELL"
-  apiKey='A8ZAY0BFM4335U9N'
+ 
+  apiKey= getValueFromConfigs('API_KEY');
   
   #TBD - Might be able to remove this
   keyCount=0 ; 
@@ -162,6 +163,7 @@ def getRecommendation( ticker , optimalValues):
   marketCap=0.0;
   priceToSales=0.0;
   priceToBook=0.0;
+  oneYearTarget=0.0;
 
   # For US Stocks & ADR's the expectedKeyCount is 16
   expectedKeyCount=10;
@@ -169,7 +171,8 @@ def getRecommendation( ticker , optimalValues):
   isPegOk=False;
   isQRevGrowthOk=False;
   isDivYieldOk=False;
-  isDebtOk=False; 
+  isDebtOk=False;
+  isOneYearTargetOk=False;
   if (keyCount >= expectedKeyCount ):
       #eps= keystats['Earnings Per Share (EPS)'];
       #eps=getValueFromKey (keyStats,  getValueFromConfigs('EPS_KEY') );
@@ -195,6 +198,7 @@ def getRecommendation( ticker , optimalValues):
 
       if ( isFairlyValued(price, oneYearTarget)):
        recommendation=BUY;
+       isOneYearTargetOk=True;
        
       tickerName = ticker;
       bookValue=convertToFloat( "0.0" );
@@ -237,7 +241,13 @@ def getRecommendation( ticker , optimalValues):
         print "pegRatio is ", pegRatio, " debtToEquity is ", debtToEquity, " qRevGrowth is ", qRevGrowth ," yield is ", divYield
 
       #logging.error('Before isFairlyValued:')
-      
+      if ( isFairlyValued(pe, optimalPeRatio)):
+         isPeOk=True; 
+         if ( isHighPct( divYield, optimalYield , getValueFromConfigs("YIELD_KEY"))):
+            isDivYieldOk=True;
+            logging.error('After isHighPct - Yield')
+            recommendation=BUY
+        
    
 
   #Currently not used because it slows the response. 
@@ -273,7 +283,7 @@ def getRecommendation( ticker , optimalValues):
             'optimalBeta': optimalBeta,
             'configType': optimalType,
             'isPeOk': isPeOk,
-            'isPegOk': isPegOk,
+            'isOneYearTargetOk': isOneYearTargetOk,
             'isQRevGrowthOk': isQRevGrowthOk,
             'isDivYieldOk': isDivYieldOk,
             'isDebtOk': isDebtOk                
