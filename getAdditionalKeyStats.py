@@ -8,20 +8,29 @@ import json
 # Download the Key Statistics given a ticker symbol
 # Return Key Statistics and list of Keys
 def getAdditionalKeyStats(ticker, apiKey, DEBUG):
-  # Download Key Stats from http://finance.yahoo.com/q/ks?s=MA
-
-  # Open URL
-  #  myURL='http://ichart.finance.yahoo.com/table.csv?'+\
-  #                       's=%s&d=10&e=20&f=2010&g=d&a=9&b=20&c=2010'%t +\
-  #                       '&ignore=.csv'
-  #getAdditionalKeyStatsNew( ticker, DEBUG) ;
-  
-  #myURL='http://finance.yahoo.com/q/ks?s=%s'%ticker
-  #myURL='http://www.nasdaq.com/symbol/'%ticker
   myURL='https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=' + ticker + '&apikey=' + apiKey
 
   if (DEBUG ):
       print "In getAdditionalKeyStats"
+      print myURL
+
+#  response = requests.get(myURL)
+    
+  c=urllib2.urlopen(myURL)
+
+  jsonData = json.loads(c.read() )
+
+  if (DEBUG):
+    print jsonData
+    
+  return jsonData
+
+
+#Generic get Data
+def getData( function , apiKey, DEBUG ):
+  myURL='https://www.alphavantage.co/query?function='+ function +   '&apikey=' + apiKey
+  if (DEBUG ):
+      print "In getData"
       print myURL
 
 #  response = requests.get(myURL)
@@ -56,3 +65,7 @@ if  ( DEBUG ):
   print "price = " + price + " change = " + change
   
   
+function="SECTOR"
+sectorData=getData( function , apiKey, DEBUG);
+print sectorData;
+
