@@ -164,6 +164,8 @@ def getRecommendation( ticker , optimalValues):
   priceToSales=0.0;
   priceToBook=0.0;
   oneYearTarget=0.0;
+  volume=0.0;
+  change=0.0;
 
   # For US Stocks & ADR's the expectedKeyCount is 16
   expectedKeyCount=10;
@@ -187,9 +189,10 @@ def getRecommendation( ticker , optimalValues):
       #  pe=float( pe );
         
       #price = getValueFromKey (keyStats,  getValueFromConfigs('PRICE_KEY') ) ;
+      logging.error("additionalStockData is %s" , additionalStockData );
       price = additionalStockData['Global Quote']['05. price'];
       change = additionalStockData['Global Quote']['09. change'];
-      volumne = additionalStockData['Global Quote']['06. volume'];
+      volume = additionalStockData['Global Quote']['06. volume'];
       logging.error("Price is %s", price );
 
       oneYearTarget= getValueFromKey (keyStats,'1 Year Target');
@@ -269,8 +272,8 @@ def getRecommendation( ticker , optimalValues):
             'divYield': divYield,
             'beta':beta,
             'oneYearTarget': oneYearTarget,
-            'fiftyDayMovAvg':fiftyDayMovAvg,
-            'twoHundredDayMovAvg':twoHundredDayMovAvg,
+            'change': change,
+            'volume': volume,
             'bookValue':bookValue,
             'marketCap':marketCap,
             'priceToSales':priceToSales,

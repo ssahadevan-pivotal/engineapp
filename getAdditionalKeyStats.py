@@ -67,5 +67,6 @@ if  ( DEBUG ):
   
 function="SECTOR"
 sectorData=getData( function , apiKey, DEBUG);
-print sectorData;
+if DEBUG:
+  print sectorData;
 

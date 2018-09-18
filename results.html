@@ -10,7 +10,7 @@
                <h3> *** Unable to find Key Statistics for  {{ ticker }} ,  tickerType={{ tickerType }}  ***</h3>
                 <h3> *** keyCount=  {{ keyCount }}, expectedKeyCount= {{ expectedKeyCount }} ***</h3>
         {% else %}
-              <h3> The result for {{ tickerType }} {{ tickerName }}, at {{ price }} is {{ recommendation }} for {{ configType }}</h3>
+              <h3> The result for {{ tickerType }} {{ tickerName }}, at {{ price }} change {{ change }} is {{ recommendation }} for {{ configType }}</h3>
               {% include "disclaimer.html" %}
               <!-- Commented out Chart - Sep 2018 
                 <img src=http://www.google.com/finance/chart?q={{ ticker }}&tlf=12 alt="Chart for {{ ticker }}"/>
